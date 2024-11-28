@@ -35,7 +35,7 @@ const Libros = () => {
       const email = localStorage.getItem("email");
       setUsuario({ uid, email });
       const { data } = await axios.post(
-        `https://server-biblioteca.onrender.com/api/general/libros`,
+          `http://localhost:3050/api/general/libros`,
         { usuario: uid }
       );
       if (data.ok) {
@@ -53,7 +53,7 @@ const Libros = () => {
 
   const validarAdmin = () => {
     const email = localStorage.getItem("email");
-    if (email === "maicoll.ariza.c@gmail.com") {
+    if (email === "ender@gmail.com") {
       setIsAdmin(true);
     }
   };
@@ -74,7 +74,7 @@ const Libros = () => {
         correoUsuario: usuario.email,
       };
       const { data } = await axios.post(
-        `https://server-biblioteca.onrender.com/api/reserva/modificar`,
+        `http://localhost:3050/api/reserva/modificar`,
         request
       );
       if (data.ok) {
@@ -107,7 +107,7 @@ const Libros = () => {
         usuario: usuario.uid,
       };
       const { data } = await axios.post(
-        `https://server-biblioteca.onrender.com/api/favorito/modificar`,
+        `http://localhost:3050/api/favorito/modificar`,
         request
       );
       if (data.ok) {
@@ -133,14 +133,11 @@ const Libros = () => {
     };
   }, [texto]);
 
-  useEffect(() => {
-    buscarLibros();
-  }, [textoDebounce]);
-
+ 
   const buscarLibros = async () => {
     try {
       const { data } = await axios.post(
-        `https://server-biblioteca.onrender.com/api/general/libros`,
+        `http://localhost:3050/api/general/libros`,
         { usuario: usuario.uid, autor: textoDebounce, titulo: textoDebounce }
       );
       if (data.ok) {
@@ -150,6 +147,15 @@ const Libros = () => {
       console.log("error:", error);
     }
   };
+
+   useEffect(() => {
+    if (textoDebounce) {
+      buscarLibros();
+    } else {
+      obtenerLibros();
+    }
+  }, [textoDebounce]);
+
 
   // #endregion
 

@@ -52,7 +52,7 @@ const Crud = ({ libro, getLibros }) => {
   const crearLibro = async () => {
     try {
       const { data } = await axios.post(
-        `https://server-biblioteca.onrender.com/api/general/libros/crear`,
+        `http://localhost:3050/api/general/libros/crear`,
         {
           titulo,
           autor,
@@ -82,7 +82,7 @@ const Crud = ({ libro, getLibros }) => {
   const editarLibro = async () => {
     try {
       const { data } = await axios.put(
-        `https://server-biblioteca.onrender.com/api/general/libros/actualizar`,
+        `http://localhost:3050/api/general/libros/actualizar`,
         {
           titulo,
           autor,
@@ -113,7 +113,7 @@ const Crud = ({ libro, getLibros }) => {
   const eliminarLibro = async () => {
     try {
       const { data } = await axios.post(
-        `https://server-biblioteca.onrender.com/api/general/libros/eliminar`,
+        `http://localhost:3050/api/general/libros/eliminar`,
         {
           id: idLibro,
         }
@@ -257,7 +257,7 @@ const Crud = ({ libro, getLibros }) => {
 
   // #region subir archivo
   const subirArchivo = async (file) => {
-    const storageRef = storage.ref("portadas/" + file.name);
+    const storageRef = storage.ref("" + file.name);
     const task = storageRef.put(file);
     setUrl("");
     task.on(

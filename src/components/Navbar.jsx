@@ -11,7 +11,7 @@ const Navbar = ({ isAuthenticated, setIsAuthenticated, isAdmin, setIsAdmin }) =>
 
   useEffect(() => {
     const email = localStorage.getItem('email');
-    setIsAdmin(email === 'maicoll.ariza.c@gmail.com');
+    setIsAdmin(email === 'ender@gmail.com');
   }, [setIsAdmin]);
 
 
@@ -38,7 +38,7 @@ const Navbar = ({ isAuthenticated, setIsAuthenticated, isAdmin, setIsAdmin }) =>
       <header className="App-header">
         <nav className="navbar backgorund-info">
           <Link to="/" className="logo" onClick={removeActive}>
-            Library
+          FindMyBook
           </Link>
           <ul className={`navMenu ${isActive ? "active" : ""}`}>
             <li onClick={removeActive}>

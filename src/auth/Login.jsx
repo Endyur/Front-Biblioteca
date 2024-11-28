@@ -165,12 +165,12 @@ const Login = () => {
       <section className="detail backgorund-info">
         <div className="header-detail">
           <i className="fa-solid fa-book-open-reader"></i>{" "}
-          <h2 className="title-detail">Library</h2>
+          <h2 className="title-detail">FindMyBook</h2>
         </div>
         <div className="body-detail">
           <p className="paragraph-detail">
             ¡Descubre, presta y disfruta de una experiencia de lectura sin
-            complicaciones con Library!
+            complicaciones con FindMyBook!
           </p>
         </div>
       </section>

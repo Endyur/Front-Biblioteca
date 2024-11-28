@@ -12,7 +12,7 @@ const Admin = () => {
 
   const obtenerReservas = async () => {
     try {
-      const { data } = await axios.get(`https://server-biblioteca.onrender.com/api/reserva`);
+      const { data } = await axios.get(`http://localhost:3050/api/reserva`);
       if (data.ok) {
         setReservas(data.reservas);
         data.reservas.map((reserva) => {
@@ -35,7 +35,7 @@ const Admin = () => {
         correoUsuario: reserva.correoUsuario,
       };
       const { data } = await axios.post(
-        `https://server-biblioteca.onrender.com/api/reserva/modificar`,
+        `http://localhost:3050/api/reserva/modificar`,
         request
       );
       if (data.ok) {
