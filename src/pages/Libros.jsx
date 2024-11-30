@@ -35,7 +35,7 @@ const Libros = () => {
       const email = localStorage.getItem("email");
       setUsuario({ uid, email });
       const { data } = await axios.post(
-          `http://localhost:3050/api/general/libros`,
+          `http://back-biblioteca-production.up.railway.app/api/general/libros`,
         { usuario: uid }
       );
       if (data.ok) {
@@ -74,7 +74,7 @@ const Libros = () => {
         correoUsuario: usuario.email,
       };
       const { data } = await axios.post(
-        `http://localhost:3050/api/reserva/modificar`,
+        `http://back-biblioteca-production.up.railway.app/api/reserva/modificar`,
         request
       );
       if (data.ok) {
@@ -107,7 +107,7 @@ const Libros = () => {
         usuario: usuario.uid,
       };
       const { data } = await axios.post(
-        `http://localhost:3050/api/favorito/modificar`,
+        `http://back-biblioteca-production.up.railway.app/api/favorito/modificar`,
         request
       );
       if (data.ok) {
@@ -137,7 +137,7 @@ const Libros = () => {
   const buscarLibros = async () => {
     try {
       const { data } = await axios.post(
-        `http://localhost:3050/api/general/libros`,
+        `http://back-biblioteca-production.up.railway.app/api/general/libros`,
         { usuario: usuario.uid, autor: textoDebounce, titulo: textoDebounce }
       );
       if (data.ok) {
