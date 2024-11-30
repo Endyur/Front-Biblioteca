@@ -52,7 +52,7 @@ const Crud = ({ libro, getLibros }) => {
   const crearLibro = async () => {
     try {
       const { data } = await axios.post(
-        `http://back-biblioteca-production.up.railway.app/api/general/libros/crear`,
+        `https://back-biblioteca-production.up.railway.app/api/general/libros/crear`,
         {
           titulo,
           autor,
@@ -82,7 +82,7 @@ const Crud = ({ libro, getLibros }) => {
   const editarLibro = async () => {
     try {
       const { data } = await axios.put(
-        `http://back-biblioteca-production.up.railway.app/api/general/libros/actualizar`,
+        `https://back-biblioteca-production.up.railway.app/api/general/libros/actualizar`,
         {
           titulo,
           autor,
@@ -113,7 +113,7 @@ const Crud = ({ libro, getLibros }) => {
   const eliminarLibro = async () => {
     try {
       const { data } = await axios.post(
-        `http://back-biblioteca-production.up.railway.app/api/general/libros/eliminar`,
+        `https://back-biblioteca-production.up.railway.app/api/general/libros/eliminar`,
         {
           id: idLibro,
         }

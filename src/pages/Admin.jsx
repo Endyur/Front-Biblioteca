@@ -12,7 +12,7 @@ const Admin = () => {
 
   const obtenerReservas = async () => {
     try {
-      const { data } = await axios.get(`http://back-biblioteca-production.up.railway.app/api/reserva`);
+      const { data } = await axios.get(`https://back-biblioteca-production.up.railway.app/api/reserva`);
       if (data.ok) {
         setReservas(data.reservas);
         data.reservas.map((reserva) => {
@@ -35,7 +35,7 @@ const Admin = () => {
         correoUsuario: reserva.correoUsuario,
       };
       const { data } = await axios.post(
-        `http://back-biblioteca-production.up.railway.app/api/reserva/modificar`,
+        `https://back-biblioteca-production.up.railway.app/api/reserva/modificar`,
         request
       );
       if (data.ok) {
